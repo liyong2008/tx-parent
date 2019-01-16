@@ -38,14 +38,14 @@
 
 	<modules>
 		<!-- 有价值模块 -->
-		<module>tx-component-command</module>
-		<module>tx-component-event</module>
-		<module>tx-component-basicdata</module>
-		<module>tx-component-task</module>
-		<module>tx-component-servicelogger</module>
-		<module>tx-component-security</module>
+		<module>tx-component-starter-command</module>
+		<module>tx-component-starter-event</module>
 		
 		<!-- 待完善的模块 -->
+		<!-- <module>tx-component-basicdata</module> -->
+		<!-- <module>tx-component-task</module> -->
+		<!-- <module>tx-component-servicelogger</module> -->
+		<!-- <module>tx-component-security</module> -->
 		<!-- <module>tx-component-configuration</module> -->
 		<!-- <module>tx-component-sequence</module> -->
 		

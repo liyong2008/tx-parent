@@ -1,0 +1,3 @@
+com\tx\component\test\dbscript\TableInitializerTest.class
+tools\generator\WTPTableCodeGenerator.class
+tools\generator\WTPBasicDataCodeGenerator.class

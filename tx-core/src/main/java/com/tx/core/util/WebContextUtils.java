@@ -8,6 +8,8 @@ package com.tx.core.util;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.http.HttpHeaders;
+
 /**
  * web容器工具类<br/>
  * <功能详细描述>
