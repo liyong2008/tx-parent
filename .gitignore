@@ -39,29 +39,29 @@
 /tx-components/tx-component-starter-basicdata/.project
 /tx-components/tx-component-starter-basicdata/.factorypath
 
-/tx-services/tx-component-starter-communication-server/target
-/tx-services/tx-component-starter-communication-server/.settings
-/tx-services/tx-component-starter-communication-server/.classpath
-/tx-services/tx-component-starter-communication-server/.factorypath
-/tx-services/tx-component-starter-communication-server/.project
+/tx-components/tx-component-starter-communication-server/target
+/tx-components/tx-component-starter-communication-server/.settings
+/tx-components/tx-component-starter-communication-server/.classpath
+/tx-components/tx-component-starter-communication-server/.factorypath
+/tx-components/tx-component-starter-communication-server/.project
 
-/tx-services/tx-component-starter-communication/target
-/tx-services/tx-component-starter-communication/.settings
-/tx-services/tx-component-starter-communication/.classpath
-/tx-services/tx-component-starter-communication/.factorypath
-/tx-services/tx-component-starter-communication/.project
+/tx-components/tx-component-starter-communication/target
+/tx-components/tx-component-starter-communication/.settings
+/tx-components/tx-component-starter-communication/.classpath
+/tx-components/tx-component-starter-communication/.factorypath
+/tx-components/tx-component-starter-communication/.project
 
-/tx-services/tx-component-starter-file-server/target
-/tx-services/tx-component-starter-file-server/.settings
-/tx-services/tx-component-starter-file-server/.classpath
-/tx-services/tx-component-starter-file-server/.project
-/tx-services/tx-component-starter-file-server/.factorypath
+/tx-components/tx-component-starter-file-server/target
+/tx-components/tx-component-starter-file-server/.settings
+/tx-components/tx-component-starter-file-server/.classpath
+/tx-components/tx-component-starter-file-server/.project
+/tx-components/tx-component-starter-file-server/.factorypath
 
-/tx-services/tx-component-starter-file/target
-/tx-services/tx-component-starter-file/.settings
-/tx-services/tx-component-starter-file/.classpath
-/tx-services/tx-component-starter-file/.project
-/tx-services/tx-component-starter-file/.factorypath
+/tx-components/tx-component-starter-file/target
+/tx-components/tx-component-starter-file/.settings
+/tx-components/tx-component-starter-file/.classpath
+/tx-components/tx-component-starter-file/.project
+/tx-components/tx-component-starter-file/.factorypath
 
 /tx-components/tx-component-task/target
 /tx-components/tx-component-task/.settings
@@ -81,17 +81,11 @@
 /tx-components/tx-component-servicelogger/.project
 /tx-components/tx-component-servicelogger/.factorypath
 
-/tx-services/target
-/tx-services/.settings
-/tx-services/.classpath
-/tx-services/.project
-/tx-services/.factorypath
-
-/tx-services/tx-service-report/target
-/tx-services/tx-service-report/.settings
-/tx-services/tx-service-report/.classpath
-/tx-services/tx-service-report/.project
-/tx-services/tx-service-report/.factorypath
+/tx-components/tx-component-report/target
+/tx-components/tx-component-report/.settings
+/tx-components/tx-component-report/.classpath
+/tx-components/tx-component-report/.project
+/tx-components/tx-component-report/.factorypath
 
 /tx-components/tx-component-config/target
 /tx-components/tx-component-config/.settings
@@ -107,3 +101,9 @@
 /tx-components/tx-component-sequence/.settings
 /tx-components/tx-component-sequence/.classpath
 /tx-components/tx-component-sequence/.project
+
+/tx-services/target
+/tx-services/.settings
+/tx-services/.classpath
+/tx-services/.project
+/tx-services/.factorypath
