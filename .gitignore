@@ -2,6 +2,8 @@
 /.settings
 /.classpath
 /.project
+/.factorypath
+/.springBeans
 
 /tx-core/target
 /tx-core/.settings
