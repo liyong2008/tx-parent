@@ -37,20 +37,7 @@ public class WebRequestSerialNumberPatternConverter
     
     private static final String DATE_FORMATTER = "yyMMddHHmmssSSS";
     
-    public static void main(String[] args) {
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        
-        System.out.println(UUID.randomUUID().toString());
-        System.out.println(UUID.randomUUID().toString().length());
-        
-        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
-        System.out.println(String.format("%015d", hashCodeAbs));
-        
-        System.out.println(generateRequestSerialNumber());
-    }
+    private static final String MIN_DATE_FORMATTER = "ddHHmmssSSS";
     
     /** 为空时输出字符 */
     private static final String NA = "[]";
@@ -64,12 +51,30 @@ public class WebRequestSerialNumberPatternConverter
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
-    private static String generateRequestSerialNumber() {
+    protected static String generateRequestSerialNumber() {
         StringBuffer sb = new StringBuffer(32);
         sb.append(DateFormatUtils.format(new Date(), DATE_FORMATTER));
         sb.append("-");
         int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
         sb.append(String.format("%015d", hashCodeAbs));
+        return sb.toString();
+    }
+    
+    /**
+     * 生成请求流水号<br/>
+     * <功能详细描述>
+     * @return [参数说明]
+     * 
+     * @return String [返回类型说明]
+     * @exception throws [异常类型] [异常说明]
+     * @see [类、类#方法、类#成员]
+     */
+    protected static String generateRequestShortSerialNumber() {
+        StringBuffer sb = new StringBuffer(32);
+        sb.append(DateFormatUtils.format(new Date(), MIN_DATE_FORMATTER));
+        sb.append("-");
+        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
+        sb.append(String.format("%08x", hashCodeAbs));
         return sb.toString();
     }
     
@@ -103,13 +108,35 @@ public class WebRequestSerialNumberPatternConverter
                     REQUEST_SERIAL_NUMBER_4_LOG,
                     RequestAttributes.SCOPE_REQUEST);
             if (StringUtils.isEmpty(requestSerialNumber)) {
-                requestSerialNumber = generateRequestSerialNumber();
+                requestSerialNumber = generateRequestShortSerialNumber();
                 ra.setAttribute(REQUEST_SERIAL_NUMBER_4_LOG,
                         requestSerialNumber,
                         RequestAttributes.SCOPE_REQUEST);
             }
             toAppendTo.append("[").append(requestSerialNumber).append("]");
         }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+        
+        System.out.println(UUID.randomUUID().toString());
+        System.out.println(UUID.randomUUID().toString().length());
+        
+        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
+        System.out.println(String.format("%015d", hashCodeAbs));
+        
+        System.out.println(generateRequestSerialNumber());
+        System.out.println(generateRequestShortSerialNumber());
+        
+        System.out.println(String.format("%010d", Integer.MAX_VALUE));
+        System.out.println(Integer.MAX_VALUE);
+        
+        System.out.println(String.format("%010x", Integer.MAX_VALUE));
+        System.out.println(String.format("%08x", Integer.MAX_VALUE));
     }
     
 }
