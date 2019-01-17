@@ -117,26 +117,26 @@ public class WebRequestSerialNumberPatternConverter
         }
     }
     
-    public static void main(String[] args) {
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        
-        System.out.println(UUID.randomUUID().toString());
-        System.out.println(UUID.randomUUID().toString().length());
-        
-        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
-        System.out.println(String.format("%015d", hashCodeAbs));
-        
-        System.out.println(generateRequestSerialNumber());
-        System.out.println(generateRequestShortSerialNumber());
-        
-        System.out.println(String.format("%010d", Integer.MAX_VALUE));
-        System.out.println(Integer.MAX_VALUE);
-        
-        System.out.println(String.format("%010x", Integer.MAX_VALUE));
-        System.out.println(String.format("%08x", Integer.MAX_VALUE));
-    }
+    //    public static void main(String[] args) {
+    //        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+    //        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+    //        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+    //        System.out.println(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+    //        
+    //        System.out.println(UUID.randomUUID().toString());
+    //        System.out.println(UUID.randomUUID().toString().length());
+    //        
+    //        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
+    //        System.out.println(String.format("%015d", hashCodeAbs));
+    //        
+    //        System.out.println(generateRequestSerialNumber());
+    //        System.out.println(generateRequestShortSerialNumber());
+    //        
+    //        System.out.println(String.format("%010d", Integer.MAX_VALUE));
+    //        System.out.println(Integer.MAX_VALUE);
+    //        
+    //        System.out.println(String.format("%010x", Integer.MAX_VALUE));
+    //        System.out.println(String.format("%08x", Integer.MAX_VALUE));
+    //    }
     
 }
