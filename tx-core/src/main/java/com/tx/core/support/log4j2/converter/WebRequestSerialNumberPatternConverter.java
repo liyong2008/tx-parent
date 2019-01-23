@@ -42,42 +42,6 @@ public class WebRequestSerialNumberPatternConverter
     /** 为空时输出字符 */
     private static final String NA = "[]";
     
-    /**
-     * 生成请求流水号<br/>
-     * <功能详细描述>
-     * @return [参数说明]
-     * 
-     * @return String [返回类型说明]
-     * @exception throws [异常类型] [异常说明]
-     * @see [类、类#方法、类#成员]
-     */
-    protected static String generateRequestSerialNumber() {
-        StringBuffer sb = new StringBuffer(32);
-        sb.append(DateFormatUtils.format(new Date(), DATE_FORMATTER));
-        sb.append("-");
-        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
-        sb.append(String.format("%015d", hashCodeAbs));
-        return sb.toString();
-    }
-    
-    /**
-     * 生成请求流水号<br/>
-     * <功能详细描述>
-     * @return [参数说明]
-     * 
-     * @return String [返回类型说明]
-     * @exception throws [异常类型] [异常说明]
-     * @see [类、类#方法、类#成员]
-     */
-    protected static String generateRequestShortSerialNumber() {
-        StringBuffer sb = new StringBuffer(32);
-        sb.append(DateFormatUtils.format(new Date(), MIN_DATE_FORMATTER));
-        sb.append("-");
-        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
-        sb.append(String.format("%08x", hashCodeAbs));
-        return sb.toString();
-    }
-    
     protected WebRequestSerialNumberPatternConverter(final String[] options) {
         super("WebRequestSerialNumber", "webRequestSerialNumber");
     }
@@ -115,6 +79,42 @@ public class WebRequestSerialNumberPatternConverter
             }
             toAppendTo.append("[").append(requestSerialNumber).append("]");
         }
+    }
+    
+    /**
+     * 生成请求流水号<br/>
+     * <功能详细描述>
+     * @return [参数说明]
+     * 
+     * @return String [返回类型说明]
+     * @exception throws [异常类型] [异常说明]
+     * @see [类、类#方法、类#成员]
+     */
+    protected static String generateRequestSerialNumber() {
+        StringBuffer sb = new StringBuffer(32);
+        sb.append(DateFormatUtils.format(new Date(), DATE_FORMATTER));
+        sb.append("-");
+        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
+        sb.append(String.format("%015d", hashCodeAbs));
+        return sb.toString();
+    }
+    
+    /**
+     * 生成请求流水号<br/>
+     * <功能详细描述>
+     * @return [参数说明]
+     * 
+     * @return String [返回类型说明]
+     * @exception throws [异常类型] [异常说明]
+     * @see [类、类#方法、类#成员]
+     */
+    protected static String generateRequestShortSerialNumber() {
+        StringBuffer sb = new StringBuffer(32);
+        sb.append(DateFormatUtils.format(new Date(), MIN_DATE_FORMATTER));
+        sb.append("-");
+        int hashCodeAbs = Math.abs(UUID.randomUUID().toString().hashCode());
+        sb.append(String.format("%08x", hashCodeAbs));
+        return sb.toString();
     }
     
     //    public static void main(String[] args) {

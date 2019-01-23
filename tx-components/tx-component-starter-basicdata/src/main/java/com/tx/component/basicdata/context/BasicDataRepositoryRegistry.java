@@ -54,21 +54,21 @@ import com.tx.core.util.ClassScanUtils;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public class BasicDataServiceRegistry implements ApplicationContextAware,
+public class BasicDataRepositoryRegistry implements ApplicationContextAware,
         InitializingBean, BeanFactoryAware, BeanNameAware {
     
     private Logger logger = LoggerFactory
-            .getLogger(BasicDataServiceRegistry.class);
+            .getLogger(BasicDataRepositoryRegistry.class);
     
     private static String beanName;
     
     private static ApplicationContext applicationContext;
     
-    private static BasicDataServiceRegistry instance;
+    private static BasicDataRepositoryRegistry instance;
     
-    private static Map<Class<?>, BasicDataService<?>> type2serviceMap = new HashMap<Class<?>, BasicDataService<?>>();
+    private static Map<Class<?>, BasicDataRepository<?>> type2serviceMap = new HashMap<Class<?>, BasicDataRepository<?>>();
     
-    private static Map<String, BasicDataService<?>> code2serviceMap = new HashMap<String, BasicDataService<?>>();
+    private static Map<String, BasicDataRepository<?>> code2serviceMap = new HashMap<String, BasicDataRepository<?>>();
     
     private AliasRegistry aliasRegistry;
     
@@ -92,12 +92,12 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
     private BasicDataRemoteService basicDataRemoteService;
     
     /** <默认构造函数> */
-    public BasicDataServiceRegistry() {
+    public BasicDataRepositoryRegistry() {
         super();
     }
     
     /** <默认构造函数> */
-    public BasicDataServiceRegistry(String module, String basePackages,
+    public BasicDataRepositoryRegistry(String module, String basePackages,
             BasicDataTypeService basicDataTypeService,
             DataDictService dataDictService,
             BasicDataRemoteService basicDataRemoteService) {
@@ -120,17 +120,17 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
     */
-    public static BasicDataServiceRegistry getInstance() {
-        AssertUtils.notEmpty(BasicDataServiceRegistry.beanName,
+    public static BasicDataRepositoryRegistry getInstance() {
+        AssertUtils.notEmpty(BasicDataRepositoryRegistry.beanName,
                 "beanName is empty.");
         
-        if (BasicDataServiceRegistry.instance == null) {
-            BasicDataServiceRegistry.instance = applicationContext.getBean(
-                    BasicDataServiceRegistry.beanName,
-                    BasicDataServiceRegistry.class);
+        if (BasicDataRepositoryRegistry.instance == null) {
+            BasicDataRepositoryRegistry.instance = applicationContext.getBean(
+                    BasicDataRepositoryRegistry.beanName,
+                    BasicDataRepositoryRegistry.class);
         }
         
-        AssertUtils.notNull(BasicDataServiceRegistry.instance,
+        AssertUtils.notNull(BasicDataRepositoryRegistry.instance,
                 "instance not inited.");
         
         return instance;
@@ -141,7 +141,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
      */
     @Override
     public void setBeanName(String beanName) {
-        BasicDataServiceRegistry.beanName = beanName;
+        BasicDataRepositoryRegistry.beanName = beanName;
     }
     
     /**
@@ -151,7 +151,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
     @Override
     public void setApplicationContext(ApplicationContext applicationContext)
             throws BeansException {
-        BasicDataServiceRegistry.applicationContext = applicationContext;
+        BasicDataRepositoryRegistry.applicationContext = applicationContext;
     }
     
     /**
@@ -229,7 +229,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
      * @see [类、类#方法、类#成员]
      */
     @SuppressWarnings("rawtypes")
-    public BasicDataService buildDefaultDBBasicDataService(String module,
+    public BasicDataRepository buildDefaultDBBasicDataService(String module,
             Class<? extends BasicData> type) {
         String beanName = generateServiceBeanName(type);
         
@@ -254,7 +254,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
         }
         
         //利用有参构造函数,(Object) type
-        BasicDataService service = (BasicDataService) BasicDataServiceRegistry.applicationContext
+        BasicDataRepository service = (BasicDataRepository) BasicDataRepositoryRegistry.applicationContext
                 .getBean(beanName);
         return service;
     }
@@ -269,12 +269,12 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
      * @see [类、类#方法、类#成员]
      */
     @SuppressWarnings("rawtypes")
-    public BasicDataService buildDefaultRemoteBasicDataService(String module,
+    public BasicDataRepository buildDefaultRemoteBasicDataService(String module,
             Class<? extends BasicData> type) {
         String beanName = generateServiceBeanName(type);
         
         //利用有参构造函数,(Object) type
-        BasicDataService service = null;
+        BasicDataRepository service = null;
         if (type.isAssignableFrom(TreeAbleBasicData.class)) {
             Class<?> defaultServiceType = DefaultRemoteTreeAbleBasicDataService.class;
             
@@ -285,7 +285,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
             builder.addPropertyValue("client", this.basicDataRemoteService);
             registerBeanDefinition(beanName, builder.getBeanDefinition());
             
-            service = (BasicDataService) BasicDataServiceRegistry.applicationContext
+            service = (BasicDataRepository) BasicDataRepositoryRegistry.applicationContext
                     .getBean(beanName);
             
         } else {
@@ -298,7 +298,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
             builder.addPropertyValue("client", this.basicDataRemoteService);
             registerBeanDefinition(beanName, builder.getBeanDefinition());
             
-            service = (BasicDataService) BasicDataServiceRegistry.applicationContext
+            service = (BasicDataRepository) BasicDataRepositoryRegistry.applicationContext
                     .getBean(beanName);
         }
         
@@ -328,11 +328,11 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void afterPropertiesSet() throws Exception {
         //查找spring容器中已经存在的业务层
-        Map<String, BasicDataService> basicDataServiceMap = BasicDataServiceRegistry.applicationContext
-                .getBeansOfType(BasicDataService.class);
-        for (Entry<String, BasicDataService> entry : basicDataServiceMap
+        Map<String, BasicDataRepository> basicDataServiceMap = BasicDataRepositoryRegistry.applicationContext
+                .getBeansOfType(BasicDataRepository.class);
+        for (Entry<String, BasicDataRepository> entry : basicDataServiceMap
                 .entrySet()) {
-            BasicDataService service = entry.getValue();
+            BasicDataRepository service = entry.getValue();
             String beanName = entry.getKey();
             if (service.type() == null
                     || DataDict.class.equals(service.type())) {
@@ -374,7 +374,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
                 continue;
             }
             
-            BasicDataService<? extends BasicData> serviceTemp = null;
+            BasicDataRepository<? extends BasicData> serviceTemp = null;
             if (bdType.isAnnotationPresent(
                     com.tx.component.basicdata.annotation.BasicDataType.class)
                     && !StringUtils.isEmpty(bdType
@@ -403,7 +403,7 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
     }
     
     @SuppressWarnings("rawtypes")
-    private void registeType2Service(BasicDataService service) {
+    private void registeType2Service(BasicDataRepository service) {
         if (DataDict.class.equals(service.type())) {
             return;
         }
@@ -430,9 +430,9 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
      * @see [类、类#方法、类#成员]
      */
     public void initBasicDataType() {
-        List<BasicDataService<?>> services = getAllBasicDataServices();
+        List<BasicDataRepository<?>> services = getAllBasicDataServices();
         //List<BasicDataType> resListOfCfg = new ArrayList<>();
-        for (BasicDataService<? extends BasicData> s : services) {
+        for (BasicDataRepository<? extends BasicData> s : services) {
             Class<? extends BasicData> type = s.type();
             String code = s.code();
             String tableName = s.tableName();
@@ -491,14 +491,14 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
      * @see [类、类#方法、类#成员]
     */
     @SuppressWarnings("unchecked")
-    public <BDTYPE extends BasicData> BasicDataService<BDTYPE> getBasicDataService(
+    public <BDTYPE extends BasicData> BasicDataRepository<BDTYPE> getBasicDataService(
             Class<BDTYPE> type) {
         AssertUtils.notNull(type, "type is null.");
         AssertUtils.isTrue(type2serviceMap.containsKey(type),
                 "type handler service is not exist.type:{}",
                 new Object[] { type });
         
-        BasicDataService<BDTYPE> service = (BasicDataService<BDTYPE>) type2serviceMap
+        BasicDataRepository<BDTYPE> service = (BasicDataRepository<BDTYPE>) type2serviceMap
                 .get(type);
         return service;
     }
@@ -512,8 +512,8 @@ public class BasicDataServiceRegistry implements ApplicationContextAware,
       * @exception throws [异常类型] [异常说明]
       * @see [类、类#方法、类#成员]
      */
-    public List<BasicDataService<?>> getAllBasicDataServices() {
-        List<BasicDataService<?>> resList = new ArrayList<BasicDataService<?>>(
+    public List<BasicDataRepository<?>> getAllBasicDataServices() {
+        List<BasicDataRepository<?>> resList = new ArrayList<BasicDataRepository<?>>(
                 type2serviceMap.values());
         return resList;
     }

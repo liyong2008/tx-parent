@@ -114,9 +114,9 @@ public class BasicDataContext extends BasicDataContextBuilder {
       * @exception throws [异常类型] [异常说明]
       * @see [类、类#方法、类#成员]
      */
-    public <BDTYPE extends BasicData> BasicDataService<BDTYPE> getBasicDataService(
+    public <BDTYPE extends BasicData> BasicDataRepository<BDTYPE> getBasicDataRepository(
             Class<BDTYPE> type) {
-        BasicDataService<BDTYPE> service = doGetBasicDataService(type);
+        BasicDataRepository<BDTYPE> service = doGetBasicDataRepository(type);
         return service;
     }
     
@@ -130,9 +130,9 @@ public class BasicDataContext extends BasicDataContextBuilder {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
     */
-    public <BDTYPE extends TreeAbleBasicData<BDTYPE>> TreeAbleBasicDataService<BDTYPE> getTreeAbleBasicDataService(
+    public <BDTYPE extends TreeAbleBasicData<BDTYPE>> TreeAbleBasicDataRepository<BDTYPE> getTreeAbleBasicDataRepository(
             Class<BDTYPE> type) {
-        TreeAbleBasicDataService<BDTYPE> service = doGetTreeAbleBasicDataService(type);
+        TreeAbleBasicDataRepository<BDTYPE> service = doGetTreeAbleBasicDataRepository(type);
         return service;
     }
     

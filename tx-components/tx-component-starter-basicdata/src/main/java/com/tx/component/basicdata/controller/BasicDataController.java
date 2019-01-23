@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tx.component.basicdata.context.BasicDataContext;
-import com.tx.component.basicdata.context.BasicDataService;
+import com.tx.component.basicdata.context.BasicDataRepository;
 import com.tx.component.basicdata.model.BasicData;
 import com.tx.component.basicdata.model.BasicDataType;
 import com.tx.component.basicdata.model.DataDict;
@@ -227,8 +227,8 @@ public class BasicDataController
                 "type(code={}) is not exist.",
                 basicDataTypeCode);
         
-        BasicDataService<?> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<?> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         BasicData bd = service.findById(id);
         response.put("basicData", bd);
         pageName = getPageName(bdType, bdPageType);
@@ -285,8 +285,8 @@ public class BasicDataController
                 "type is null.basicDataTypeCode:{}",
                 basicDataTypeCode);
         
-        BasicDataService<?> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<?> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         boolean flag = service.isExist(key2valueMap, excludeDataDictId);
         Map<String, String> resMap = new HashMap<String, String>();
         if (!flag) {
@@ -333,8 +333,8 @@ public class BasicDataController
                 "type is null.basicDataTypeCode:{}",
                 basicDataTypeCode);
         
-        BasicDataService<?> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<?> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         List<? extends BasicData> resList = service.queryList(valid, params);
         return resList;
     }
@@ -381,8 +381,8 @@ public class BasicDataController
                 "type is null.basicDataTypeCode:{}",
                 basicDataTypeCode);
         
-        BasicDataService<? extends BasicData> service = BasicDataContext
-                .getContext().getBasicDataService(type);
+        BasicDataRepository<? extends BasicData> service = BasicDataContext
+                .getContext().getBasicDataRepository(type);
         PagedList<? extends BasicData> resPagedList = service
                 .queryPagedList(valid, params, pageIndex, pageSize);
         return resPagedList;
@@ -427,8 +427,8 @@ public class BasicDataController
                         requestMap.getFirst(propertyName));
             }
         }
-        BasicDataService service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         service.insert(obj);
         
         return true;
@@ -473,8 +473,8 @@ public class BasicDataController
                         requestMap.getFirst(propertyName));
             }
         }
-        BasicDataService service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         service.updateById(obj);
         return true;
     }
@@ -510,8 +510,8 @@ public class BasicDataController
                 "type is null.basicDataTypeCode:{}",
                 basicDataTypeCode);
         
-        BasicDataService<? extends BasicData> service = BasicDataContext
-                .getContext().getBasicDataService(type);
+        BasicDataRepository<? extends BasicData> service = BasicDataContext
+                .getContext().getBasicDataRepository(type);
         boolean resFlag = service.deleteById(id);
         return resFlag;
     }
@@ -546,8 +546,8 @@ public class BasicDataController
                 "type is null.basicDataTypeCode:{}",
                 basicDataTypeCode);
         
-        BasicDataService<? extends BasicData> service = BasicDataContext
-                .getContext().getBasicDataService(type);
+        BasicDataRepository<? extends BasicData> service = BasicDataContext
+                .getContext().getBasicDataRepository(type);
         boolean resFlag = service.disableById(id);
         return resFlag;
     }
@@ -583,8 +583,8 @@ public class BasicDataController
                 "type is null.basicDataTypeCode:{}",
                 basicDataTypeCode);
         
-        BasicDataService<? extends BasicData> service = BasicDataContext
-                .getContext().getBasicDataService(type);
+        BasicDataRepository<? extends BasicData> service = BasicDataContext
+                .getContext().getBasicDataRepository(type);
         boolean resFlag = service.enableById(id);
         return resFlag;
     }

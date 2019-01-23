@@ -21,8 +21,8 @@ import com.tx.core.tree.model.TreeAble;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public interface TreeAbleBasicData<T extends TreeAbleBasicData<T>> extends
-        BasicData, TreeAble<List<T>, T>, ConfigInitAble, Serializable {
+public interface TreeAbleBasicData<T extends TreeAbleBasicData<T>>
+        extends BasicData, TreeAble<List<T>, T>, ConfigInitAble, Serializable {
     
     /**
       * 获取父节点对象<br/>
@@ -45,4 +45,16 @@ public interface TreeAbleBasicData<T extends TreeAbleBasicData<T>> extends
       * @see [类、类#方法、类#成员]
       */
     public void setParent(T parent);
+    
+    /**
+     * @return
+     */
+    @Override
+    default String getParentId() {
+        T parent = getParent();
+        if (parent == null) {
+            return null;
+        }
+        return parent.getId();
+    }
 }

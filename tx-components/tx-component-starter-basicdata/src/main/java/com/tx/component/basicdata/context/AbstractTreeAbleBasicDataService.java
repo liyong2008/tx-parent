@@ -19,6 +19,6 @@ import com.tx.component.basicdata.model.TreeAbleBasicData;
  */
 public abstract class AbstractTreeAbleBasicDataService<T extends TreeAbleBasicData<T>>
         extends AbstractBasicDataService<T> implements
-        TreeAbleBasicDataService<T> {
+        TreeAbleBasicDataRepository<T> {
     
 }

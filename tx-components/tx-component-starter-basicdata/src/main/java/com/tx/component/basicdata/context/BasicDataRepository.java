@@ -23,7 +23,7 @@ import com.tx.core.paged.model.PagedList;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public interface BasicDataService<T extends BasicData> {
+public interface BasicDataRepository<T extends BasicData> {
     
     /**
      * 基础数据类型<br/>

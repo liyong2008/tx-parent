@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tx.component.basicdata.context.BasicDataContext;
-import com.tx.component.basicdata.context.BasicDataService;
-import com.tx.component.basicdata.context.TreeAbleBasicDataService;
+import com.tx.component.basicdata.context.BasicDataRepository;
+import com.tx.component.basicdata.context.TreeAbleBasicDataRepository;
 import com.tx.component.basicdata.model.BasicData;
 import com.tx.component.basicdata.model.TreeAbleBasicData;
 import com.tx.core.exceptions.util.AssertUtils;
@@ -58,8 +58,8 @@ public class BasicDataRemoteController {
     @RequestMapping(value = "{type}/tableName", method = RequestMethod.GET)
     public <T extends BasicData> String tableName(@PathVariable Class<T> type) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -86,8 +86,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> void insert(@PathVariable Class<T> type,
             @RequestBody JSONObject data) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -113,8 +113,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> void batchInsert(@PathVariable Class<T> type,
             @RequestBody JSONArray datas) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -141,8 +141,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> boolean updateById(@PathVariable Class<T> type,
             @RequestBody JSONObject data) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -169,8 +169,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> void batchUpdate(@PathVariable Class<T> type,
             @RequestBody JSONArray datas) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -197,8 +197,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> boolean deleteById(@PathVariable Class<T> type,
             String id) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -226,8 +226,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> boolean deleteByCode(
             @PathVariable Class<T> type, String code) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -255,8 +255,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> boolean isExist(@PathVariable Class<T> type,
             Map<String, String> key2valueMap, String excludeId) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -279,8 +279,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> T findById(@PathVariable Class<T> type,
             String id) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -303,8 +303,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> T findByCode(@PathVariable Class<T> type,
             String code) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -328,8 +328,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> List<T> queryList(@PathVariable Class<T> type,
             Boolean valid, Map<String, Object> params) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -356,8 +356,8 @@ public class BasicDataRemoteController {
             @PathVariable Class<T> type, Boolean valid,
             Map<String, Object> params, int pageIndex, int pageSize) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -383,8 +383,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> boolean disableById(
             @PathVariable Class<T> type, String id) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -407,8 +407,8 @@ public class BasicDataRemoteController {
     public <T extends BasicData> boolean enableById(@PathVariable Class<T> type,
             String id) {
         AssertUtils.notNull(type, "type is null.");
-        BasicDataService<T> service = BasicDataContext.getContext()
-                .getBasicDataService(type);
+        BasicDataRepository<T> service = BasicDataContext.getContext()
+                .getBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -434,8 +434,8 @@ public class BasicDataRemoteController {
             @PathVariable Class<T> type, String parentId, Boolean valid,
             Map<String, Object> params) {
         AssertUtils.notNull(type, "type is null.");
-        TreeAbleBasicDataService<T> service = BasicDataContext.getContext()
-                .getTreeAbleBasicDataService(type);
+        TreeAbleBasicDataRepository<T> service = BasicDataContext.getContext()
+                .getTreeAbleBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
@@ -463,8 +463,8 @@ public class BasicDataRemoteController {
             @PathVariable Class<T> type, String parentId, Boolean valid,
             Map<String, Object> params, int pageIndex, int pageSize) {
         AssertUtils.notNull(type, "type is null.");
-        TreeAbleBasicDataService<T> service = BasicDataContext.getContext()
-                .getTreeAbleBasicDataService(type);
+        TreeAbleBasicDataRepository<T> service = BasicDataContext.getContext()
+                .getTreeAbleBasicDataRepository(type);
         AssertUtils.notNull(service,
                 "service is not exist.type:{}",
                 new Object[] { type });
