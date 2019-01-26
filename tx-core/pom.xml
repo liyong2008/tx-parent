@@ -159,6 +159,13 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- kaptcha -->
+		<dependency>
+			<groupId>com.github.penggle</groupId>
+			<artifactId>kaptcha</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 		<!-- commons ext -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>

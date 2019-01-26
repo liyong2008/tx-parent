@@ -460,11 +460,18 @@
 				<version>1.7.6</version>
 			</dependency>
 
-			<!-- google工具类 : 验证码 -->
+			<!-- google工具类  -->
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>20.0</version>
+			</dependency>
+
+			<!-- kaptcha -->
+			<dependency>
+				<groupId>com.github.penggle</groupId>
+				<artifactId>kaptcha</artifactId>
+				<version>2.3.2</version>
 			</dependency>
 
 			<!-- itext -->

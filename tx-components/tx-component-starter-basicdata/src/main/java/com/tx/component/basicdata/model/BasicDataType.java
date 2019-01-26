@@ -9,12 +9,6 @@ package com.tx.component.basicdata.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import com.tx.core.jdbc.sqlsource.annotation.QueryConditionEqual;
-import com.tx.core.jdbc.sqlsource.annotation.UpdateAble;
 import com.tx.core.support.initable.model.ConfigInitAble;
 
 /**
@@ -26,65 +20,45 @@ import com.tx.core.support.initable.model.ConfigInitAble;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-@Entity
-@Table(name = "bd_basic_data_type")
 public class BasicDataType implements ConfigInitAble, Serializable {
     
     /** 注释内容 */
     private static final long serialVersionUID = 7400998214492770823L;
     
     /** 基础数据id */
-    @Id
     private String id;
     
     /** 基础数据类型 */
-    @QueryConditionEqual
     private Class<? extends BasicData> type;
     
     /** 基础数据所属模块 */
-    @UpdateAble
-    @QueryConditionEqual
     private String module;
     
     /** 基础数据类型编码 */
-    @UpdateAble
-    @QueryConditionEqual
     private String code;
     
     /** 基础数据对应表名 */
-    @UpdateAble
-    @QueryConditionEqual
     private String tableName;
     
     /** 基础数据类型名 */
-    @UpdateAble
-    @QueryConditionEqual
     private String name;
     
-    @UpdateAble
-    @QueryConditionEqual
+    /** 是否有效 */
     private boolean valid = true;
     
-    @UpdateAble
-    @QueryConditionEqual
+    /** 是否可编辑 */
     private boolean modifyAble = false;
     
     /** 基础数据类型备注 */
-    @UpdateAble
     private String remark;
     
     /** 是否在通用的界面中进行数据维护 */
-    @UpdateAble
-    @QueryConditionEqual
     private boolean common = true;
     
     /** 是否分页显示 */
-    @UpdateAble
-    @QueryConditionEqual
     private BasicDataViewTypeEnum viewType = BasicDataViewTypeEnum.LIST;
     
     /** 最后更新时间 */
-    @UpdateAble
     private Date lastUpdateDate;
     
     /** 基础数据类型创建时间 */

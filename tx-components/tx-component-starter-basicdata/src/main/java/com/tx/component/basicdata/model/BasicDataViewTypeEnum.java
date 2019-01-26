@@ -22,7 +22,7 @@ public enum BasicDataViewTypeEnum implements BasicDataEnum {
     
     LIST("LIST", "列表"),
     
-    PAGEDLIST("LIST", "分页列表"),
+    PAGEDLIST("PAGEDLIST", "分页列表"),
     
     TREE("TREE", "树型列表");
     
