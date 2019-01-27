@@ -33,7 +33,7 @@ import com.tx.core.util.typereference.ParameterizedTypeReference;
  */
 public abstract class AbstractBasicDataService<T extends BasicData>
         extends ParameterizedTypeReference<T>
-        implements BasicDataRepository<T>, InitializingBean {
+        implements BasicDataService<T>, InitializingBean {
     
     protected ConfigInitAbleHelper<T> configInitAbleHelper;
     

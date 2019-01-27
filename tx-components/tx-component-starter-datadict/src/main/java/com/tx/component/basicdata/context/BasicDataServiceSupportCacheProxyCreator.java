@@ -55,7 +55,7 @@ public class BasicDataServiceSupportCacheProxyCreator extends
     protected Object[] getAdvicesAndAdvisorsForBean(Class<?> beanClass,
             String beanName, TargetSource customTargetSource)
             throws BeansException {
-        if (!BasicDataRepository.class.isAssignableFrom(beanClass)) {
+        if (!BasicDataService.class.isAssignableFrom(beanClass)) {
             return DO_NOT_PROXY;
         }
         
@@ -69,7 +69,7 @@ public class BasicDataServiceSupportCacheProxyCreator extends
                     .toString();
         }
         org.springframework.cache.Cache cache = this.cacheManager.getCache(cacheNameOfService);
-        if (BasicDataRepository.class.isAssignableFrom(beanClass)) {
+        if (BasicDataService.class.isAssignableFrom(beanClass)) {
             Object[] interceptors = new Object[] { new ServiceSupportCacheInterceptor(
                     cache) };
             return interceptors;

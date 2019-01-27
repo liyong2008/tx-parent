@@ -70,7 +70,7 @@ class BasicDataSetupHandler {
                 //如果id,code,name均不为空，则不进行加载
                 continue;
             }
-            BasicDataRepository<? extends BasicData> service = this.context.getBasicDataRepository(basicDataType);
+            BasicDataService<? extends BasicData> service = this.context.getBasicDataService(basicDataType);
             if (service == null) {
                 //如果没有对应类型业务层逻辑<br/>
                 continue;

@@ -32,7 +32,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.tx.component.basicdata.context.BasicDataContextFactory;
-import com.tx.component.basicdata.context.BasicDataRepositoryRegistry;
+import com.tx.component.basicdata.context.BasicDataServiceRegistry;
 import com.tx.component.basicdata.context.BasicDataServiceSupportCacheProxyCreator;
 import com.tx.component.basicdata.controller.BasicDataRemoteController;
 import com.tx.component.basicdata.controller.BasicDataTypeController;
@@ -361,10 +361,10 @@ public class BasicDataContextAutoConfiguration
      */
     @DependsOn(value = "basicDataContext")
     @Bean(name = "basicdata.basicDataServiceRegistry")
-    public BasicDataRepositoryRegistry basicDataServiceRegistry(
+    public BasicDataServiceRegistry basicDataServiceRegistry(
             BasicDataTypeService basicDataTypeService,
             DataDictService dataDictService) {
-        BasicDataRepositoryRegistry serviceFactory = new BasicDataRepositoryRegistry(
+        BasicDataServiceRegistry serviceFactory = new BasicDataServiceRegistry(
                 module, basePackages, basicDataTypeService, dataDictService,
                 null);
         

@@ -7,9 +7,9 @@
 		<version>5.0.x-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>tx-component-starter-basicdata</artifactId>
-	<name>tx-component-starter-basicdata</name>
+	<artifactId>tx-component-basicdata</artifactId>
 	<packaging>jar</packaging>
+	<name>tx-component-basicdata</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
@@ -37,20 +37,24 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<!-- tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<!-- eureka -->

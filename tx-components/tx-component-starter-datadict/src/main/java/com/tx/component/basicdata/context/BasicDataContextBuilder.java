@@ -31,7 +31,7 @@ public class BasicDataContextBuilder extends BasicDataContextConfigurator
     protected static String beanName;
     
     /** 类型2业务逻辑层的映射关联 */
-    protected Map<Class<?>, BasicDataRepository<?>> type2serviceMap = new HashMap<>();
+    protected Map<Class<?>, BasicDataService<?>> type2serviceMap = new HashMap<>();
     
     /**
      * @param name
@@ -59,11 +59,11 @@ public class BasicDataContextBuilder extends BasicDataContextConfigurator
       * @exception throws [异常类型] [异常说明]
       * @see [类、类#方法、类#成员]
      */
-    protected final <BDTYPE extends BasicData> BasicDataRepository<BDTYPE> doGetBasicDataRepository(
+    protected final <BDTYPE extends BasicData> BasicDataService<BDTYPE> doGetBasicDataService(
             Class<BDTYPE> type) {
         AssertUtils.notNull(type, "type is null.");
         
-        BasicDataRepository<BDTYPE> service = BasicDataRepositoryRegistry.getInstance()
+        BasicDataService<BDTYPE> service = BasicDataServiceRegistry.getInstance()
                 .getBasicDataService(type);
         return service;
     }
@@ -78,11 +78,11 @@ public class BasicDataContextBuilder extends BasicDataContextConfigurator
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
     */
-    protected final <BDTYPE extends TreeAbleBasicData<BDTYPE>> TreeAbleBasicDataRepository<BDTYPE> doGetTreeAbleBasicDataRepository(
+    protected final <BDTYPE extends TreeAbleBasicData<BDTYPE>> TreeAbleBasicDataService<BDTYPE> doGetTreeAbleBasicDataService(
             Class<BDTYPE> type) {
         AssertUtils.notNull(type, "type is null.");
         
-        TreeAbleBasicDataRepository<BDTYPE> service = (TreeAbleBasicDataRepository<BDTYPE>) BasicDataRepositoryRegistry.getInstance()
+        TreeAbleBasicDataService<BDTYPE> service = (TreeAbleBasicDataService<BDTYPE>) BasicDataServiceRegistry.getInstance()
                 .getBasicDataService(type);
         return service;
     }

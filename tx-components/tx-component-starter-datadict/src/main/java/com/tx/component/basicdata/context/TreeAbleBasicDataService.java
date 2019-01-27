@@ -21,8 +21,8 @@ import com.tx.core.paged.model.PagedList;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public interface TreeAbleBasicDataRepository<T extends TreeAbleBasicData<T>>
-        extends BasicDataRepository<T> {
+public interface TreeAbleBasicDataService<T extends TreeAbleBasicData<T>>
+        extends BasicDataService<T> {
     
     /**
      * 根据条件查询基础数据列表<br/>

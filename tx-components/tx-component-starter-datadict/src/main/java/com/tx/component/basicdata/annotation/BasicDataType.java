@@ -29,7 +29,7 @@ import com.tx.component.basicdata.model.BasicDataViewTypeEnum;
 public @interface BasicDataType {
     
     /**
-     * 基础数据所属模块<br/>
+     * 基础数据类型编码<br/>
      * <功能详细描述>
      * @return [参数说明]
      * 
@@ -37,7 +37,7 @@ public @interface BasicDataType {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
-    String module();
+    String module() default "";
     
     /**
      * 基础数据名称<br/>
