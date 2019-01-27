@@ -17,6 +17,7 @@
 /tx-components/.classpath
 /tx-components/.project
 /tx-components/.factorypath
+/tx-components/.springBeans
 
 /tx-components/tx-component-starter-command/target
 /tx-components/tx-component-starter-command/.settings
@@ -88,19 +89,19 @@
 /tx-components/tx-component-starter-task-server/.factorypath
 /tx-components/tx-component-starter-task-server/.springBeans
 
-/tx-components/tx-component-starter-communication-server/target
-/tx-components/tx-component-starter-communication-server/.settings
-/tx-components/tx-component-starter-communication-server/.classpath
-/tx-components/tx-component-starter-communication-server/.factorypath
-/tx-components/tx-component-starter-communication-server/.project
-/tx-components/tx-component-starter-communication-server/.springBeans
-
 /tx-components/tx-component-starter-communication/target
 /tx-components/tx-component-starter-communication/.settings
 /tx-components/tx-component-starter-communication/.classpath
 /tx-components/tx-component-starter-communication/.factorypath
 /tx-components/tx-component-starter-communication/.project
 /tx-components/tx-component-starter-communication/.springBeans
+
+/tx-components/tx-component-starter-communication-server/target
+/tx-components/tx-component-starter-communication-server/.settings
+/tx-components/tx-component-starter-communication-server/.classpath
+/tx-components/tx-component-starter-communication-server/.factorypath
+/tx-components/tx-component-starter-communication-server/.project
+/tx-components/tx-component-starter-communication-server/.springBeans
 
 /tx-components/tx-component-starter-security/target
 /tx-components/tx-component-starter-security/.settings
@@ -122,10 +123,3 @@
 /tx-components/tx-component-starter-sequence/.project
 /tx-components/tx-component-starter-sequence/.factorypath
 /tx-components/tx-component-starter-sequence/.springBeans
-
-/tx-components/tx-component-starter-servicelogger/target
-/tx-components/tx-component-starter-servicelogger/.settings
-/tx-components/tx-component-starter-servicelogger/.classpath
-/tx-components/tx-component-starter-servicelogger/.project
-/tx-components/tx-component-starter-servicelogger/.factorypath
-/tx-components/tx-component-starter-servicelogger/.springBeans
