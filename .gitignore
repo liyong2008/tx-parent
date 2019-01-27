@@ -40,12 +40,12 @@
 /tx-components/tx-component-starter-datadict/.factorypath
 /tx-components/tx-component-starter-datadict/.springBeans
 
-/tx-components/tx-component-starter-config/target
-/tx-components/tx-component-starter-config/.settings
-/tx-components/tx-component-starter-config/.classpath
-/tx-components/tx-component-starter-config/.project
-/tx-components/tx-component-starter-config/.factorypath
-/tx-components/tx-component-starter-config/.springBeans
+/tx-components/tx-component-starter-configuration/target
+/tx-components/tx-component-starter-configuration/.settings
+/tx-components/tx-component-starter-configuration/.classpath
+/tx-components/tx-component-starter-configuration/.project
+/tx-components/tx-component-starter-configuration/.factorypath
+/tx-components/tx-component-starter-configuration/.springBeans
 
 /tx-components/tx-component-starter-basicdata/target
 /tx-components/tx-component-starter-basicdata/.settings
