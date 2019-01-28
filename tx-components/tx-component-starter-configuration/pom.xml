@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>com.tx</groupId>
 		<artifactId>tx-components</artifactId>
-		<version>3.0.x-SNAPSHOT</version>
+		<version>5.0.x-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>tx-component-configuration</artifactId>
+	<artifactId>tx-component-starter-configuration</artifactId>
 	<packaging>jar</packaging>
-	<name>tx-component-configuration</name>
+	<name>tx-component-starter-configuration</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>

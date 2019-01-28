@@ -18,27 +18,27 @@ package com.tx.core.exceptions;
 public enum SILErrorCodeEnum implements ErrorCode {
     
     /* -------　参数异常 start ------- */
-    ARG_ILLEGAL_ERROR(101000, "参数非法"),
+    ARG_ILLEGAL_ERROR(500001000, "参数非法"),
     
-    ARG_EMPTY_ERROR(101011, "参数为空"),
+    ARG_EMPTY_ERROR(500001001, "参数为空"),
     
-    ARG_NOT_EMPTY_ERROR(101012, "参数非空"),
+    ARG_NOT_EMPTY_ERROR(500001002, "参数非空"),
     
-    ARG_NULL_ERROR(101002, "参数为空"),
+    ARG_NULL_ERROR(500103, "参数为空"),
     
-    ARG_NOT_NULL_ERROR(101002, "参数非空"),
+    ARG_NOT_NULL_ERROR(500104, "参数非空"),
     
-    ARG_TYPE_ILLEGAL_ERROR(102000, "参数类型非法"),
+    ARG_TYPE_ILLEGAL_ERROR(500105, "参数类型非法"),
     
-    ARG_TYPE_NOT_MATCHED_ERROR(102001, "参数类型不匹配"),
+    ARG_TYPE_NOT_MATCHED_ERROR(500106, "参数类型不匹配"),
     
-    ARG_TYPE_IS_INTERFACE_ERROR(102101, "参数为接口"),
+    ARG_TYPE_IS_INTERFACE_ERROR(500107, "参数为接口"),
     
-    ARG_TYPE_NOT_INTERFACE_ERROR(102201, "参数不为接口"),
+    ARG_TYPE_NOT_INTERFACE_ERROR(500108, "参数不为接口"),
     
-    ARG_TYPE_IS_ABSTRACT_CLASS_ERROR(102102, "参数为抽象类"),
+    ARG_TYPE_IS_ABSTRACT_CLASS_ERROR(500109, "参数为抽象类"),
     
-    ARG_TYPE_NOT_ABSTRACT_CLASS_ERROR(102202, "参数不为抽象类"),
+    ARG_TYPE_NOT_ABSTRACT_CLASS_ERROR(500110, "参数不为抽象类"),
     
     ARG_TYPE_IS_ENUM_ERROR(102302, "参数为枚举"),
     

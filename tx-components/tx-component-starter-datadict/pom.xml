@@ -7,9 +7,9 @@
 		<version>5.0.x-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>tx-component-basicdata</artifactId>
+	<artifactId>tx-component-starter-datadict</artifactId>
 	<packaging>jar</packaging>
-	<name>tx-component-basicdata</name>
+	<name>tx-component-starter-basicdata</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
@@ -17,13 +17,6 @@
 		<dependency>
 			<groupId>com.tx</groupId>
 			<artifactId>tx-core</artifactId>
-		</dependency>
-
-		<!-- swagger2 -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- 根据xml加载初始化数据 -->
@@ -94,13 +87,6 @@
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<!-- mysql -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
 			<optional>true</optional>
 		</dependency>
 
