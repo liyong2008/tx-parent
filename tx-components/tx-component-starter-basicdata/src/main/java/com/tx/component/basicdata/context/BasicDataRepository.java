@@ -59,18 +59,6 @@ public interface BasicDataRepository<T extends BasicData> {
     public String module();
     
     /**
-     * 获取对应的表名<br/>
-     *     用户写入基础数据类型中
-     * <功能详细描述>
-     * @return [参数说明]
-     * 
-     * @return String [返回类型说明]
-     * @exception throws [异常类型] [异常说明]
-     * @see [类、类#方法、类#成员]
-     */
-    public String tableName();
-    
-    /**
      * 插入基础数据对象
      * <功能详细描述>
      * @param data [参数说明]

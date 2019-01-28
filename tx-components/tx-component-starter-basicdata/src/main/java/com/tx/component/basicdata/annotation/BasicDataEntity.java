@@ -26,7 +26,7 @@ import com.tx.component.basicdata.model.BasicDataViewTypeEnum;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE })
 @Inherited
-public @interface BasicDataType {
+public @interface BasicDataEntity {
     
     /**
      * 基础数据所属模块<br/>

@@ -6,7 +6,7 @@
  * 修改时间:  2012-10-5
  * <修改描述:>
  */
-package com.tx.component.configuration.model;
+package com.tx.component.config.model;
 
 /**
  * 配置属性
@@ -72,18 +72,7 @@ public interface ConfigProperty {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
-    public String getDescription();
-    
-    /**
-     * 获取配置属性状态
-     * <功能详细描述>
-     * @return [参数说明]
-     * 
-     * @return String [返回类型说明]
-     * @exception throws [异常类型] [异常说明]
-     * @see [类、类#方法、类#成员]
-     */
-    public boolean isLeaf();
+    public String getRemark();
     
     /**
      * 对应配置属性是否能够修改<br/>
@@ -97,7 +86,7 @@ public interface ConfigProperty {
     public boolean isModifyAble();
     
     /**
-     * 是否可见<br/>
+     * 是否为叶节点<br/>
      * <功能详细描述>
      * @return [参数说明]
      * 
@@ -105,18 +94,7 @@ public interface ConfigProperty {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
-    public boolean isViewAble();
-    
-    /**
-     * 获取配置属性分组信息<br/> 
-     * <功能详细描述>
-     * @return [参数说明]
-     * 
-     * @return String [返回类型说明]
-     * @exception throws [异常类型] [异常说明]
-     * @see [类、类#方法、类#成员]
-     */
-    public String getConfigPropertyGroupName();
+    public boolean isLeaf();
     
     /**
      * 获取配置属性类型<br/>
@@ -127,17 +105,5 @@ public interface ConfigProperty {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
-    public ConfigPropertyTypeEnum getConfigPropertyType();
-    
-    /**
-      * 更新配置属性<br/>
-      *<功能简述>
-      *<功能详细描述>
-      * @param newValue [参数说明]
-      * 
-      * @return void [返回类型说明]
-      * @exception throws [异常类型] [异常说明]
-      * @see [类、类#方法、类#成员]
-     */
-    public void update(String newValue);
+    public String getScope();
 }

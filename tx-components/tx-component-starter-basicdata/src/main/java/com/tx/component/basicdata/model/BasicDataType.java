@@ -25,9 +25,6 @@ public class BasicDataType implements ConfigInitAble, Serializable {
     /** 注释内容 */
     private static final long serialVersionUID = 7400998214492770823L;
     
-    /** 基础数据id */
-    private String id;
-    
     /** 基础数据类型 */
     private Class<? extends BasicData> type;
     
@@ -36,9 +33,6 @@ public class BasicDataType implements ConfigInitAble, Serializable {
     
     /** 基础数据类型编码 */
     private String code;
-    
-    /** 基础数据对应表名 */
-    private String tableName;
     
     /** 基础数据类型名 */
     private String name;
@@ -49,11 +43,11 @@ public class BasicDataType implements ConfigInitAble, Serializable {
     /** 是否可编辑 */
     private boolean modifyAble = false;
     
-    /** 基础数据类型备注 */
-    private String remark;
-    
     /** 是否在通用的界面中进行数据维护 */
     private boolean common = true;
+    
+    /** 基础数据类型备注 */
+    private String remark;
     
     /** 是否分页显示 */
     private BasicDataViewTypeEnum viewType = BasicDataViewTypeEnum.LIST;
