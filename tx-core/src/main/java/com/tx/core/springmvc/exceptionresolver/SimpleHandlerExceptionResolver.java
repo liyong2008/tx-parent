@@ -64,7 +64,11 @@ public class SimpleHandlerExceptionResolver extends
             
             return ajaxErrorMV;
         } else {
-            return super.resolveException(request, response, handler, ex);
+            ModelAndView errorMV = super.resolveException(request, response, handler, ex);
+            //如果解析的错误视图为空
+            if(errorMV == null){
+                //TODO: 
+            }
         }
     }
     

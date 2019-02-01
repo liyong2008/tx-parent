@@ -67,6 +67,7 @@ public interface BasicDataRepository<T extends BasicData> {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
+    @Transactional
     public void insert(T data);
     
     /**
@@ -78,6 +79,7 @@ public interface BasicDataRepository<T extends BasicData> {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
+    @Transactional
     public void batchInsert(List<T> dataList);
     
     /**
@@ -181,6 +183,7 @@ public interface BasicDataRepository<T extends BasicData> {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
+    @Transactional
     public boolean updateById(T data);
     
     /**
@@ -192,6 +195,7 @@ public interface BasicDataRepository<T extends BasicData> {
      * @exception throws [异常类型] [异常说明]
      * @see [类、类#方法、类#成员]
      */
+    @Transactional
     public void batchUpdate(List<T> dataList);
     
     /**

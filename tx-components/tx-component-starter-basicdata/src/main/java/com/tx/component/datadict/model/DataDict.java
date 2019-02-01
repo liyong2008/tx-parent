@@ -6,24 +6,18 @@
  */
 package com.tx.component.datadict.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.tx.component.basicdata.model.BasicData;
-import com.tx.core.jdbc.sqlsource.annotation.QueryConditionEqual;
-import com.tx.core.jdbc.sqlsource.annotation.UpdateAble;
-import com.tx.core.support.entrysupport.model.EntityEntry;
-import com.tx.core.support.entrysupport.model.EntryAble;
 import com.tx.core.support.initable.model.ConfigInitAble;
+import com.tx.core.support.json.JSONAttributesSupport;
 
 /**
  * 基础数据字典<br/>
@@ -36,7 +30,8 @@ import com.tx.core.support.initable.model.ConfigInitAble;
  */
 @Entity
 @Table(name = "bd_data_dict")
-public class DataDict implements ConfigInitAble, BasicData {
+public class DataDict
+        implements ConfigInitAble, BasicData, JSONAttributesSupport {
     
     /** 注释内容 */
     private static final long serialVersionUID = 3972222691318635864L;
@@ -53,40 +48,28 @@ public class DataDict implements ConfigInitAble, BasicData {
     private DataDict parent;
     
     /** 编码 */
-    @QueryConditionEqual
     private String code;
     
     /** 是否有效 */
-    @UpdateAble
-    @QueryConditionEqual
     private boolean valid = true;
     
     /** 是否可编辑 */
-    @UpdateAble
-    @QueryConditionEqual
     private boolean modifyAble = true;
     
     /** 名称 */
-    @UpdateAble
-    @QueryConditionEqual
     private String name;
     
     /** 备注 */
-    @UpdateAble
-    @QueryConditionEqual
     private String remark;
     
     /** 最后更新时间 */
-    @UpdateAble
     private Date lastUpdateDate;
     
     /** 创建时间 */
     private Date createDate;
     
-    /** 分项列表 */
-    @OneToMany
-    @Transient
-    private List<EntityEntry> entryList = new ArrayList<>();
+    /** 额外属性值 */
+    private String attributes;
     
     /**
      * @return 返回 id
@@ -249,16 +232,16 @@ public class DataDict implements ConfigInitAble, BasicData {
     }
     
     /**
-     * @return 返回 entryList
+     * @return 返回 attributes
      */
-    public List<EntityEntry> getEntryList() {
-        return entryList;
+    public String getAttributes() {
+        return attributes;
     }
     
     /**
-     * @param 对entryList进行赋值
+     * @param 对attributes进行赋值
      */
-    public void setEntryList(List<EntityEntry> entryList) {
-        this.entryList = entryList;
+    public void setAttributes(String attributes) {
+        this.attributes = attributes;
     }
 }

@@ -4,7 +4,7 @@
  * 修改时间:  2019年1月28日
  * <修改描述:>
  */
-package com.tx.component.configdict.service;
+package com.tx.component.config.service;
 
 
 /**

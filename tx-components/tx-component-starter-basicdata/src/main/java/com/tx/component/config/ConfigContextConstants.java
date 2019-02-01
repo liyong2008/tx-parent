@@ -4,7 +4,7 @@
  * 修改时间:  2013-12-20
  * <修改描述:>
  */
-package com.tx.component.configdict;
+package com.tx.component.config;
 
 
  /**

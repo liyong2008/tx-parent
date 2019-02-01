@@ -23,6 +23,9 @@ public class ConfigContextProperties {
     /** 命令容器是否启动 */
     private boolean enable;
     
+    
+    private String configLocation;
+    
     /** 基础包集合 */
     private String basePackages = "";
     
